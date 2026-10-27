@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Patterns Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Design Patterns System</h1>
+        <p>Library Management & Vehicle Rental</p>
+    </header>
+
+    <nav>
+        <button onclick="showSection('library')">Library Management</button>
+        <button onclick="showSection('rental')">Vehicle Rental</button>
+    </nav>
+
+    <main>
+        <!-- Library Management System -->
+        <section id="library" class="panel">
+            <h2>Library Management System</h2>
+            <p class="description">
+                Singleton, Adapter and Command Design Patterns
+            </p>
+
+            <div class="form-group">
+                <label for="bookId">Book ID</label>
+                <input type="number" id="bookId" placeholder="Enter book ID">
+            </div>
+
+            <div class="form-group">
+                <label for="bookTitle">Book Title</label>
+                <input type="text" id="bookTitle" placeholder="Enter book title">
+            </div>
+
+            <div class="form-group">
+                <label for="bookAuthor">Author</label>
+                <input type="text" id="bookAuthor" placeholder="Enter author name">
+            </div>
+
+            <div class="button-group">
+                <button onclick="addBook()">Add Book</button>
+                <button class="danger" onclick="removeBook()">Remove Book</button>
+                <button class="secondary" onclick="searchBook()">Search Book</button>
+                <button class="secondary" onclick="displayBooks()">Show All Books</button>
+            </div>
+
+            <h3>Library Books</h3>
+            <div id="libraryMessage" class="message" role="status"></div>
+            <div id="bookList" class="results"></div>
+
+            <div class="pattern-info">
+                <h3>Design Patterns Used</h3>
+                <p><strong>Singleton:</strong> One shared Library instance manages the books.</p>
+                <p><strong>Adapter:</strong> Converts legacy book data into the standard format.</p>
+                <p><strong>Command:</strong> Add, remove, and search actions are encapsulated as command objects.</p>
+            </div>
+        </section>
+
+        <!-- Vehicle Rental System -->
+        <section id="rental" class="panel hidden">
+            <h2>Vehicle Rental System</h2>
+            <p class="description">Factory Method Design Pattern</p>
+
+            <div class="form-group">
+                <label for="vehicleType">Select Vehicle</label>
+                <select id="vehicleType">
+                    <option value="car">Car</option>
+                    <option value="bike">Bike</option>
+                    <option value="truck">Truck</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="vehicleDays">Rental Duration (days)</label>
+                <input type="number" id="vehicleDays" min="1" value="1">
+            </div>
+
+            <button onclick="rentVehicle()">Rent Vehicle</button>
+
+            <h3>Rental Details</h3>
+            <div id="rentalMessage" class="message" role="status"></div>
+            <div id="rentalList" class="results"></div>
+
+            <div class="pattern-info">
+                <h3>Design Pattern Used</h3>
+                <p><strong>Factory Method:</strong> Vehicle-specific factory classes create cars, bikes, or trucks without the main application needing to construct them directly.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Design Patterns Mini Project | HTML, CSS and JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
